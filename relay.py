@@ -1,9 +1,21 @@
 import re
 
-while not re.compile(r'\d+').fullmatch(number := input('I think you have to insert a number in integer and press Enter key: ')):
-    print('Maybe you are not getting it.')
-else:
-    number = int(number)
+NUMBER_RE = re.compile(r'\d+')
 
-for i in range(number):
-    print('Hello, world!')
+
+def get_number():
+    return input('I think you have to insert a number in integer and press Enter key: ')
+
+
+def main():
+    while not NUMBER_RE.fullmatch(number := get_number()):
+        print('Maybe you are not getting it.')
+    else:
+        number = int(number)
+
+    for i in range(number):
+        print('Hello, world!')
+
+
+if __name__ == '__main__':
+    main()
